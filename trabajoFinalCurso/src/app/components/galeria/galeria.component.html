@@ -1,1 +1,8 @@
-<p>galeria works!</p>
+<div class="contenedor-general">
+    @for (item of items; track $index) {
+        <div class="contenedor-item">
+            <p>{{$index}}</p>
+            <img src="{{item.image}}" alt="">
+        </div>
+    }
+</div>

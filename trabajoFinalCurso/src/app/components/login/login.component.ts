@@ -3,7 +3,7 @@ import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { routes } from '../../app-routing.module';
+import { routes } from '../../app.routes.';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 
@@ -49,24 +49,11 @@ export class LoginComponent implements OnInit {
     if (this.login.getToken()) {
       this.router.navigate(['/']);
     }
-    /*if (this.login.activeUser.name !== '') {
 
-    }*/
     this.UserService.getUser().subscribe( data => {
       console.log(JSON.stringify(data[0]));
       this.user = data[0];
     })
-
-    
-      //this.myFormContact.get('name')?.disable(); Impide que el usuario introducido por la función anterior pueda ser modificado.
-  
-      //Subscripciones:
-      /*
-      this.myFormContact.get('dniType')?.valueChanges.subscribe(value => {
-        this.mostrarDNI = value != '';
-        this.dniType = value
-      });
-      */
 
 
   }

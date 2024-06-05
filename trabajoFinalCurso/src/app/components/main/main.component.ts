@@ -1,14 +1,18 @@
 import { Component, AfterViewInit, ViewChild} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet,  RouterModule, RouterLink, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { routes } from '../../app.routes.';
+import { appConfig } from '../../app.config';
+
 
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink,  RouterModule],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrl: './main.component.css',
+  providers: [{provide: ActivatedRoute, useValue: routes}]
 })
 export class MainComponent {
 
