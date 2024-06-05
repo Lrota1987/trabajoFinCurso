@@ -1,8 +1,18 @@
 <div class="contenedor-general">
     @for (item of items; track $index) {
         <div class="contenedor-item">
-            <p>{{$index}}</p>
-            <img src="{{item.image}}" alt="">
+            <a href="">
+                <div class="contenedor-img">
+                    <img src="{{item.image}}" alt="">
+                </div>
+                <br>
+                <h5 class="titulo">{{item.title}}</h5>
+            </a>
         </div>
     }
 </div>
+
+
+@if (token) {
+    <button class="addItem">Añadir Obra</button>
+}
