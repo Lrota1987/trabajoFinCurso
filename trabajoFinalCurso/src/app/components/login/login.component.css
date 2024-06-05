@@ -1,0 +1,18 @@
+*{
+    background-color: rgba(82, 81, 81, 0.982);
+    margin: 5px;
+    color: white;
+}
+
+input {
+    background-color: black;
+}
+
+button {
+    background-color: gray;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+  }

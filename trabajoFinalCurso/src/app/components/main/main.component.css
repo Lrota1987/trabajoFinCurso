@@ -1,0 +1,24 @@
+
+.cabecera {
+    background-color: gray;
+    color: gold;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p {
+    background-color: inherit;
+}
+
+.login {
+    font-size: smaller;
+    color: gray;
+}
+
+.footer {
+    display: flex;
+    justify-content: right;
+}
+
+

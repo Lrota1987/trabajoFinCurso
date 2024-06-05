@@ -1,0 +1,20 @@
+<div class="container-login">
+    <form [formGroup]="formulario" class="form-login" (ngSubmit)="enviar()">
+        <label for="user">Username:</label>
+        <input [ngClass]="{'is-invalid': hasError('user', 'required')}" type="text" name="user" id="user" formControlName="user">
+        <div *ngIf="hasError('user', 'required')">
+            <p class="error">El usuario es requerido.</p>
+        </div>
+        <br>
+        <label for="pass">Password:</label>
+        <input [ngClass]="{'is-invalid': hasError('pass', 'required')}" type="password" name="pass" id="pass" formControlName="pass">
+        <div *ngIf="hasError('pass', 'required')">
+            <p class="error">La contraseña es requerida.</p>
+        </div>
+        @if (errorLogin === true) {
+            <p class="error">La contraseña o el usuario son incorrectos.</p>
+        }
+        <br>
+        <button type="submit" [disabled]="formulario.invalid">Enviar</button>
+    </form>
+</div>
