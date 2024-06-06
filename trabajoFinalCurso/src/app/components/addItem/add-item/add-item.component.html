@@ -1,0 +1,26 @@
+<div class="contenedor">
+    <form [formGroup]="formulario" class="form-addItem" (ngSubmit)="subirObra()">
+        <label for="title">Título:</label>
+        <input [ngClass]="{'is-invalid': hasError('title', 'required')}" type="text" name="title" id="title" formControlName="title">
+        <div *ngIf="hasError('title', 'required')">
+            <p class="error">Manué, ¡pon un título!.</p>
+        </div>
+        <br>
+        <label for="image">Imagen:</label>
+        <input [ngClass]="{'is-invalid': hasError('image', 'required')}" (change)="capturarFile($event)" type="file" name="image" id="image" formControlName="image">
+        <div *ngIf="hasError('image', 'required')">
+            <p class="error">Manué, ¡pon una imagen!.</p>
+        </div>
+        <br>
+        @if (previsualizacion) {
+            <img [src]="previsualizacion" alt="">
+        }
+        <br>
+        <label for="description">Descripción:</label>
+        <div class="contenedor-descripcion">
+            <textarea name="description" id="description" cols="80" rows="10" style="background-color: white; color: black;" formControlName="description"></textarea>
+        </div>
+
+        <button type="submit">Subir obra</button>
+    </form>
+</div>

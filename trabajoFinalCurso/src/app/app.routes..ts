@@ -5,6 +5,7 @@ import { BiografiaComponent } from "./components/biografia/biografia.component";
 import { GaleriaComponent } from "./components/galeria/galeria.component";
 import { ContactoComponent } from "./components/contacto/contacto.component";
 import { LoginComponent } from "./components/login/login.component";
+import { AddItemComponent } from "./components/addItem/add-item/add-item.component";
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
     {path: 'galeria', component: GaleriaComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'galeria/anadir', component: AddItemComponent},
     {path:'**', redirectTo: '', pathMatch: 'full'},
 
 ]

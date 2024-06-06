@@ -19,11 +19,6 @@ const ItemsSchema = new mongoose.Schema(
     },
     { collection: 'items'}
   );
-
-  ItemsSchema.methods.setImgUrl = function setImgUrl(filename) {
-    const { host, port} = appConfig;
-    this.image = `${host}:${port}/public/${filename}`;
-  }
   
   const Items = mongoose.model("items", ItemsSchema);
   

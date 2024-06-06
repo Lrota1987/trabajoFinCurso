@@ -2,18 +2,20 @@ import { Component } from '@angular/core';
 import { ItemsService } from '../../services/items.service';
 import { Item } from '../../models/item.model';
 import { LoginService } from '../../services/login.service';
+import { ActivatedRoute, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { routes } from '../../app.routes.';
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet, RouterLink, RouterModule],
   templateUrl: './galeria.component.html',
-  styleUrl: './galeria.component.css'
+  styleUrl: './galeria.component.css',
+  providers: [{provide: ActivatedRoute, useValue: routes}]
 })
 export class GaleriaComponent {
   
   public token: any;
-  public cookie: any;
   public items: Item[];
 
   constructor(private itemsService:  ItemsService, private loginService: LoginService) {
