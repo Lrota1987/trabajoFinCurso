@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 const { appConfig } = require("../config");
+const { ObjectId } = require("mongodb");
 
 const ItemsSchema = new mongoose.Schema(
     {
+
         title: {
             type: String,
             required: [true, "¡Por favor Manué!, debes ingresar un título."]

@@ -1,0 +1,17 @@
+<div class="contenedor-general">
+    <div class="contenedor-titulo">
+        <h2>{{item?.title}}</h2>
+    </div>
+    <div class="contenedor-imagen">
+        <img src="{{item?.image}}" alt="">
+    </div>
+    <div class="contenedor-descripcion">
+        <p>{{item?.description}}</p>
+    </div>
+</div>
+
+@if (token) {
+    <button class="eliminar" (click)="delete()">Eliminar</button>
+    &nbsp;
+    <button class="actualizar">Actualizar</button>
+}

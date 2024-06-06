@@ -6,6 +6,7 @@ import { GaleriaComponent } from "./components/galeria/galeria.component";
 import { ContactoComponent } from "./components/contacto/contacto.component";
 import { LoginComponent } from "./components/login/login.component";
 import { AddItemComponent } from "./components/addItem/add-item/add-item.component";
+import { ItemDetailComponent } from "./components/item-detail/item-detail.component";
 
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'contacto', component: ContactoComponent},
     {path: 'login', component: LoginComponent},
     {path: 'galeria/anadir', component: AddItemComponent},
+    {path: 'galeria/:idItem', component: ItemDetailComponent},
     {path:'**', redirectTo: '', pathMatch: 'full'},
 
 ]

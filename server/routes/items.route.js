@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Items = require('../models/items.model');
-const storage = require('../config/multer')
+const storage = require('../config/multer');
 const multer = require('multer');
 
 const uploader = multer( {
@@ -28,6 +28,14 @@ router.get('/downloadItems', async (req, res)=>{
     const image = await Items.find();
     res.json(image);
 })
+
+router.get(`/downloadItems/:id`, async (req, res)=>{
+    const { id } = req.params;
+    const image = await Items.findById(id);
+    res.json(image);
+})
+
+
 
 
 module.exports = router;

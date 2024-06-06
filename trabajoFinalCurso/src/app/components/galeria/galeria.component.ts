@@ -29,7 +29,7 @@ export class GaleriaComponent {
 
 
       this.itemsService.getItems().subscribe( data => {
-      console.log(JSON.stringify(data[0]));
+      console.log(JSON.stringify(data[1]._id));
       this.items = data;
     })
 
