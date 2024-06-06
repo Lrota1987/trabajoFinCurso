@@ -11,7 +11,7 @@
 </div>
 
 @if (token) {
-    <button class="eliminar" (click)="delete()">Eliminar</button>
+    <button class="eliminar" (click)="delete(item?._id)">Eliminar</button>
     &nbsp;
     <button class="actualizar">Actualizar</button>
 }

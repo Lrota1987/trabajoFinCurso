@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemsService } from '../../services/items.service';
 import { Item } from '../../models/item.model';
 import { LoginService } from '../../services/login.service';
@@ -19,7 +19,7 @@ export class ItemDetailComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private itemService: ItemsService, private loginService: LoginService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemsService, private loginService: LoginService) {}
 
   ngOnInit(): void {
 
@@ -36,12 +36,16 @@ export class ItemDetailComponent implements OnInit {
             console.log(`There is an error: ${error}`)
             this.loading = false;
           }
+
         })
       })
+
   };
 
-  delete() {
-    
-  }
+
+  delete(id: any) {
+      this.itemService.deleteItem(id);
+      this.router.navigate(['/galeria']);
+    }
 
 }

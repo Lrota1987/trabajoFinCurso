@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { Item } from '../models/item.model';
 
 @Injectable({
@@ -27,5 +27,12 @@ export class ItemsService {
     form.append('description', description);
 
     return this.http.post<Object>(`${this.server}/uploadFile`, form);
+  }
+
+  public deleteItem(id: string) {
+    return firstValueFrom(
+      this.http.get<any>(`${this.server}/deleteItems/${id}`)
+    )
+
   }
 }

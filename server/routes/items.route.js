@@ -9,6 +9,7 @@ const uploader = multer( {
 }).single('image');
 
 
+
 router.post('/uploadFile', uploader, async (req, res) => {
     const { body, file } = req;
     if ( body && file ) {
@@ -33,6 +34,13 @@ router.get(`/downloadItems/:id`, async (req, res)=>{
     const { id } = req.params;
     const image = await Items.findById(id);
     res.json(image);
+})
+
+router.get('/deleteItems/:id', async (req, res) => {
+        const {id} = req.params;
+        console.log('se mete!');
+        const item = await Items.findByIdAndDelete(id)
+        res.json(item);
 })
 
 
