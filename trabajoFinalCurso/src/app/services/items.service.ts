@@ -21,6 +21,6 @@ export class ItemsService {
     form.append('image', image, 'form-data');
     form.append('description', description);
 
-    return this.http.post<Object>(`${this.server}/api/upload`, form);
+    return this.http.post<Object>(`${this.server}/uploadFile`, form);
   }
 }

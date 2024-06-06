@@ -6,7 +6,7 @@ const multer = require('multer');
 
 const uploader = multer( {
     storage
-}).single('file');
+}).single('image');
 
 
 router.post('/uploadFile', uploader, async (req, res) => {
@@ -17,7 +17,7 @@ router.post('/uploadFile', uploader, async (req, res) => {
             image: `http://localhost:8081/${file.filename}`,
             description: body.description
         })
-        await new newImage.save();
+        await newImage.save();
         res.json({
             newImage: newImage
         })

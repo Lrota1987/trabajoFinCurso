@@ -5,39 +5,46 @@
 }
 
 .contenedor-general {
+    height: fit-content;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,600px));
+    grid-template-columns: repeat(auto-fit, minmax(100px,200px));
 }
 
 .contenedor-item {
     text-align: center;
     height: 300px;
-    width: 200px;
+    width: 250px;
     margin-left: 10px;
     margin-top: 10px;
-    border: 2px solid gold;
+    margin-right: 10px;
+    padding: 30px;
+
+    
 
 }
 
 
 .contenedor-img {
-    height: 75%;
+    margin-top: -25px;
+    height: 83%;
     width: 100%;
     margin-left: 0;
 }
 
 img {
-    height: 100%;
     width: 100%;
+    max-height: 90%;
     margin-left: 0;
 }
 
 .titulo {
     margin-top: -10px;
+    margin-bottom: -30px;
 }
 
 .addItem {
     font-size: smaller;
     color: gray;
     background-color: transparent;
+    
 }

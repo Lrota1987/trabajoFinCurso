@@ -21,6 +21,6 @@
             <textarea name="description" id="description" cols="80" rows="10" style="background-color: white; color: black;" formControlName="description"></textarea>
         </div>
 
-        <button type="submit">Subir obra</button>
+        <button type="submit" [disabled]="!formulario.valid">Subir obra</button>
     </form>
 </div>

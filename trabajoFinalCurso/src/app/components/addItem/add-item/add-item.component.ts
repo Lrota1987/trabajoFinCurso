@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ItemsService } from '../../../services/items.service';
@@ -21,21 +21,23 @@ export class AddItemComponent implements OnInit {
   formulario: FormGroup;
   public archivos: any = [];
   public previsualizacion: string = '';
-  public imagen: string = "../../../../../server/public/";
+  image: any = '';
+  file: any;
 
   constructor(private loginService: LoginService,private itemService: ItemsService, private routes: Router, private form: FormBuilder, private sanitizer: DomSanitizer) {
     this.token=loginService.getToken();
-
-    this.formulario = this.form.group({
-      title: ['', Validators.required],
-      image: [null, Validators.required],
-      description: ['']
-    })
+    this.formulario = new FormGroup({});
 
   }
 
 
   ngOnInit(): void {
+
+    this.formulario = new FormGroup({
+      title: new FormControl(null, Validators.required),
+      image: new FormControl(null, Validators.required),
+      description: new FormControl(null)
+    })
 
     if (!this.token) {
       this.routes.navigate(['/']);
@@ -48,6 +50,8 @@ export class AddItemComponent implements OnInit {
           this.previsualizacion = imagen.base;
 
         });
+
+        this.file = archivoCapturado;
         //this.archivos.push(archivoCapturado)
 
 
@@ -78,17 +82,19 @@ export class AddItemComponent implements OnInit {
   })
 
   subirObra() {
-    this.formulario.value.image = this.previsualizacion;
+    console.log(this.file);
     const form = this.formulario;
     if (this.formulario.valid) {
-      this.itemService.uploadItem(form.value.title, form.value.image, form.value.description)
-      .subscribe( data => {
-        this.formulario = this.form.group({
-          title: [''],
-          image: [null],
-          description: ['']
+      this.itemService.uploadItem(form.value.title, this.file, form.value.description)
+        .subscribe(data=> {
+          this.formulario = new FormGroup({
+            title: new FormControl(null),
+            image: new FormControl(null),
+            description: new FormControl(null)
+          })
         })
-      })
+        this.routes.navigate(['/galeria']);
+
     }
   }
 
