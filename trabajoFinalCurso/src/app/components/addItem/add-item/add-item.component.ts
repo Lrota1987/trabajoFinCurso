@@ -24,7 +24,7 @@ export class AddItemComponent implements OnInit {
   image: any = '';
   file: any;
 
-  constructor(private loginService: LoginService,private itemService: ItemsService, private routes: Router, private form: FormBuilder, private sanitizer: DomSanitizer) {
+  constructor(private loginService: LoginService,private itemService: ItemsService, private routes: Router, private sanitizer: DomSanitizer) {
     this.token=loginService.getToken();
     this.formulario = new FormGroup({});
 

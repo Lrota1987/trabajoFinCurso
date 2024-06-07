@@ -11,7 +11,30 @@
 </div>
 
 @if (token) {
-    <button class="eliminar" (click)="delete(item?._id)">Eliminar</button>
-    &nbsp;
-    <button class="actualizar">Actualizar</button>
+    @if (!update) {
+        <button class="eliminar" (click)="delete(item?._id)">Eliminar</button>
+        &nbsp;
+        <button class="actualizar" (click)="clickUpdate()">Actualizar</button>
+    }
+    @if (update) {
+        <div class="contenedor-formulario">
+            <form [formGroup]="formulario" (ngSubmit)="updateItem(item?._id, item?.image)">
+                <label for="title">Título:&nbsp;</label>
+                <br>
+                <input [ngClass]="{'is-invalid': hasError('title', 'required')}" type="text" name="title" id="title" value="{{item?.title}}" formControlName="title">
+                <div *ngIf="hasError('title', 'required')">
+                    <p class="error">Manué, ¡pon un título!.</p>
+                </div>
+                <br>
+                <br>
+                <label for="description">Descripción:</label>
+                <br>
+                <textarea name="description" id="description" cols="80" rows="10"  formControlName="description"></textarea>
+                <br>
+                <button type="submit" class="button-enviar">Actualizar</button>
+            </form>
+        </div>
+        <button class="noActualizar actualizar" (click)="clickUpdate()">Cancelar</button>
+        
+    }
 }

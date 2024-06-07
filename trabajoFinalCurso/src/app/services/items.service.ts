@@ -35,4 +35,16 @@ export class ItemsService {
     )
 
   }
+
+  public updateItem(id: string, image: string, title: string, description: string) {
+    const form = {
+      title: title,
+      image: image,
+      description: description
+    }
+    return firstValueFrom(
+
+      this.http.put<any>(`${this.server}/updateItem/${id}`, form)
+    )
+  }
 }

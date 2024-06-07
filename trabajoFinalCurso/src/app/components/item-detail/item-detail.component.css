@@ -1,10 +1,8 @@
-*{
+
+.contenedor-general {
     background-color: rgba(82, 81, 81, 0.982);
     margin: 5px;
     color: white;
-}
-
-.contenedor-general {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -24,3 +22,25 @@ button {
     color: gray;
     background-color: transparent;
 } 
+
+.contenedor-formulario {
+    color: white;
+    text-align: center;
+    background-color: black;
+}
+
+form {
+    background-color: black;
+}
+
+input {
+    color: white;
+}
+
+textarea {
+    color: white;
+}
+
+.button-enviar {
+    color: gray;
+}
