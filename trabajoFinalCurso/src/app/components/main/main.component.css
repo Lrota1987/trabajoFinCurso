@@ -1,12 +1,4 @@
 
-.cabecera {
-    background-color: gray;
-    color: gold;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 p {
     background-color: inherit;
 }
