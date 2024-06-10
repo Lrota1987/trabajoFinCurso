@@ -6,9 +6,10 @@ import { provideHttpClient } from "@angular/common/http";
 import { provideClientHydration } from "@angular/platform-browser";
 import { appConfig } from './app/app.config';
 
-bootstrapApplication(MainComponent,{
+bootstrapApplication(MainComponent, {
   providers:[
     ...appConfig.providers,
-    provideHttpClient()
+    provideHttpClient(),
+    provideClientHydration()
   ]
 });

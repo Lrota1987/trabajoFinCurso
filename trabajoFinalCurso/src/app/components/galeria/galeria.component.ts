@@ -35,7 +35,7 @@ export class GaleriaComponent {
 
     console.log(this.items);
 
-
   }
+
 
 }

@@ -3,3 +3,17 @@
     margin: 5px;
     color: white;
 }
+
+
+.cabecera {
+    background-color: gray;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.contenedor-general {
+    text-align: center;
+}
