@@ -9,18 +9,16 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px,200px));
     background-color: rgba(82, 81, 81, 0.982);
+    margin: 0, auto;
+    grid-gap: 25px;
 }
 
 .contenedor-item {
     text-align: center;
     height: 300px;
     width: 250px;
-    margin-left: 10px;
     margin-top: 10px;
-    margin-right: 10px;
-    padding: 20px;
     background-color: rgba(82, 81, 81, 0.982);
-
     
 
 }
@@ -30,13 +28,10 @@
     margin-top: -25px;
     height: 83%;
     width: 100%;
-    margin-left: 0;
 }
 
 img {
-    height: 100%;
     max-height: 90%;
-    margin-left: 0;
     max-width: 100%;
 }
 
