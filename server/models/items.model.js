@@ -7,12 +7,12 @@ const ItemsSchema = new mongoose.Schema(
 
         title: {
             type: String,
-            required: [true, "¡Por favor Manué!, debes ingresar un título."]
+            required: true
         },
   
         image: {
             type: String,
-            required: [true, "Vamos a ver Manué, si no ingresas una imagen, ¿qué estás haciendo?."]
+            required: true
         },
         description: {
             type: String,

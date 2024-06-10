@@ -3,6 +3,7 @@ const router = express.Router();
 const Items = require('../models/items.model');
 const storage = require('../config/multer');
 const multer = require('multer');
+const fs = require('fs');
 
 const uploader = multer( {
     storage
@@ -40,6 +41,15 @@ router.get('/deleteItems/:id', async (req, res) => {
         const {id} = req.params;
         console.log('se mete!');
         const item = await Items.findByIdAndDelete(id)
+        const arr = item.image.split('/');
+        const name = arr[arr.length-1];
+        try {
+            fs.unlinkSync(`./upload/${name}`);
+            console.log('File removed');
+        }
+        catch (err) {
+            console.error('Something wrong happened removing the file: ', err);
+        }
         res.json(item);
 })
 
